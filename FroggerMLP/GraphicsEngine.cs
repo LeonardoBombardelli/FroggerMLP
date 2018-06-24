@@ -12,7 +12,6 @@ namespace FroggerMLP
         /* Members */
         private Graphics canvas;
         private Bitmap frame;
-        int i = 1;
 
         //Textures to render
         private Bitmap charTexture;
@@ -25,28 +24,28 @@ namespace FroggerMLP
             frame = new Bitmap(Game.CANVAS_WIDTH, Game.CANVAS_HEIGHT);
             canvas = Graphics.FromImage(frame);
 
-            loadAssets();
+            LoadAssets();
         }
-
-        private void loadAssets()
+        
+        private void LoadAssets()
         {
             charTexture = FroggerMLP.Properties.Resources.charSprite;
         }
 
-        private void fillsBackground()
+        private void FillsBackground()
         {
             canvas.FillRectangle(new SolidBrush(Color.Beige), 0, 0, Game.CANVAS_WIDTH, Game.CANVAS_HEIGHT);
         }
 
-        private void drawsChar(int Width, int Height)
+        private void DrawsChar(Entity player)
         {
-            canvas.DrawImage(charTexture, Width, Height);
+            canvas.DrawImage(charTexture, (float)player.posX,(float)player.posY);
         }
 
-        public Bitmap refreshFrame()
+        public Bitmap RefreshFrame(Entity mainChar)
         {
-            fillsBackground();
-            drawsChar(100, 100);
+            FillsBackground();
+            DrawsChar(mainChar);
             return frame;
         }
     }

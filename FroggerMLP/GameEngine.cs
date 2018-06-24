@@ -15,10 +15,9 @@ namespace FroggerMLP
         /*Members*/
         private Graphics drawHandler;
         private Thread renderThread;
-        private GraphicsEngine graphicsEngine; 
+        private GraphicsEngine graphicsEngine;
+        private Entity doll;
 
-        //Textures to render
-        private Bitmap charTexture;
 
         /*Methods*/
 
@@ -29,27 +28,22 @@ namespace FroggerMLP
         }
 
         //Initializes a thread at the render() method
-        public void initialize()
+        public void Initialize()
         {
-            loadAssets();
-
-            renderThread = new Thread(new ThreadStart(render));
+            renderThread = new Thread(new ThreadStart(Render));
             renderThread.Start();
-        }
-
-        private void loadAssets()
-        {
-            charTexture = FroggerMLP.Properties.Resources.charSprite;
+            doll = new Entity(TypeOfEntity.MainChar, 100, 100);
+            
         }
 
         //Kills the thread responsible for rendering
-        public void stopRender()
+        public void StopRender()
         {
             renderThread.Abort();
         }
 
         //Render the images to the screen
-        private void render()
+        private void Render()
         {
             int framesPerSecond = 0;
             long startTime = Environment.TickCount;
@@ -58,7 +52,7 @@ namespace FroggerMLP
 
             while(true)
             {
-                frame = graphicsEngine.refreshFrame();
+                frame = graphicsEngine.RefreshFrame(doll);
 
                 //Draws the frame on the canvas
                 drawHandler.DrawImage(frame, 0, 0);

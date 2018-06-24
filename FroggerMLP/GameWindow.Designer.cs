@@ -38,7 +38,7 @@
             this.gameCanvas.Name = "gameCanvas";
             this.gameCanvas.Size = new System.Drawing.Size(1200, 700);
             this.gameCanvas.TabIndex = 0;
-            this.gameCanvas.Paint += new System.Windows.Forms.PaintEventHandler(this.gameCanvas_Paint);
+            this.gameCanvas.Paint += new System.Windows.Forms.PaintEventHandler(this.GameCanvas_Paint);
             // 
             // GameWindow
             // 

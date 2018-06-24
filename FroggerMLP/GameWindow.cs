@@ -23,16 +23,16 @@ namespace FroggerMLP
         }
 
         //Canvas painting function - Launches paint functionality
-        private void gameCanvas_Paint(object sender, PaintEventArgs e)
+        private void GameCanvas_Paint(object sender, PaintEventArgs e)
         {
             Graphics graphics = gameCanvas.CreateGraphics();
-            game.startGraphics(graphics);
+            game.StartGraphics(graphics);
         }
 
         //Called when the Form is closed, makes all game threads close
         private void GameWindow_FormClosing(object sender, FormClosingEventArgs e)
         {
-            game.stopGame();
+            game.StopGame();
         }
 
         //When window is loaded, we open the debug console

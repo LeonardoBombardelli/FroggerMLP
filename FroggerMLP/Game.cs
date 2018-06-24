@@ -18,16 +18,16 @@ namespace FroggerMLP
 
         /* Methods */
         
-        public void startGraphics(Graphics graphics)
+        public void StartGraphics(Graphics graphics)
         {
             gameEngine = new GameEngine(graphics);
-            gameEngine.initialize();
+            gameEngine.Initialize();
         }
 
         //Called when the Form is closed, used to stop all threads from the game
-        public void stopGame()
+        public void StopGame()
         {
-            gameEngine.stopRender();
+            gameEngine.StopRender();
         }
     }
 }
