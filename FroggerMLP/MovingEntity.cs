@@ -11,5 +11,7 @@ namespace FroggerMLP
     {
         public MovingEntity(TypeOfEntity typeOfEntity, int posX, int posY) : base(typeOfEntity, posX, posY)
         { }
+
+        
     }
 }

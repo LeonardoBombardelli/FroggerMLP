@@ -16,7 +16,7 @@ namespace FroggerMLP
         private Graphics drawHandler;
         private Thread renderThread;
         private GraphicsEngine graphicsEngine;
-        private Entity doll;
+        private GameState gameState;
 
 
         /*Methods*/
@@ -25,6 +25,7 @@ namespace FroggerMLP
         public GameEngine(Graphics graphics)
         {
             drawHandler = graphics;
+            gameState = new GameState();
         }
 
         //Initializes a thread at the render() method
@@ -32,7 +33,6 @@ namespace FroggerMLP
         {
             renderThread = new Thread(new ThreadStart(Render));
             renderThread.Start();
-            doll = new Entity(TypeOfEntity.MainChar, 100, 100);
             
         }
 
@@ -52,7 +52,7 @@ namespace FroggerMLP
 
             while(true)
             {
-                frame = graphicsEngine.RefreshFrame(doll);
+                frame = graphicsEngine.RefreshFrame(gameState);
 
                 //Draws the frame on the canvas
                 drawHandler.DrawImage(frame, 0, 0);

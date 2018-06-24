@@ -37,15 +37,15 @@ namespace FroggerMLP
             canvas.FillRectangle(new SolidBrush(Color.Beige), 0, 0, Game.CANVAS_WIDTH, Game.CANVAS_HEIGHT);
         }
 
-        private void DrawsChar(Entity player)
+        private void DrawsChar(MainChar player)
         {
             canvas.DrawImage(charTexture, (float)player.posX,(float)player.posY);
         }
 
-        public Bitmap RefreshFrame(Entity mainChar)
+        public Bitmap RefreshFrame(GameState gameState)
         {
             FillsBackground();
-            DrawsChar(mainChar);
+            DrawsChar(gameState.mainChar);
             return frame;
         }
     }

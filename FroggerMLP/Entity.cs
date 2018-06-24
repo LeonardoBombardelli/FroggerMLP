@@ -14,12 +14,12 @@ namespace FroggerMLP
         Obstacle
     }
 
-    class Entity
+    abstract class Entity
     {
         /* Members */
-        private TypeOfEntity typeOfEntity { get; set; }
-        private int posX { get; set; }
-        p int posY { get; set; }
+        public TypeOfEntity typeOfEntity;
+        public int posX;
+        public int posY;
 
         /* Methods */
         //Constructor
