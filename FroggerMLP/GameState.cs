@@ -11,6 +11,7 @@ namespace FroggerMLP
 
         /* Members */
         public MainChar mainChar { get; set; }
+        public List<Street> streets { get; set; }
 
         private bool goingDown = false;
         private bool goingUp = false;
@@ -20,8 +21,19 @@ namespace FroggerMLP
         public GameState()
         {
             this.mainChar = new MainChar(TypeOfEntity.MainChar, MainChar.INITIAL_POS_X, MainChar.INITIAL_POS_Y);
+            InitializeStreets();
         }
-        
+
+        private void InitializeStreets()
+        {
+            streets = new List<Street>();
+            streets.Add(new Street(4, 6, 50));
+            streets.Add(new Street(5, 4, 150));
+            streets.Add(new Street(4, 7, 250));
+
+
+        }
+
         public void ClockTick()
         {
             if (goingDown)
@@ -42,6 +54,11 @@ namespace FroggerMLP
             if (goingRight)
             {
                 mainChar.MoveHorizontal(MainChar.SPEED_RIGHT);
+            }
+
+            foreach(Street street in streets)
+            {
+                street.StreetRefresh();
             }
         }
 

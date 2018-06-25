@@ -44,10 +44,22 @@ namespace FroggerMLP
             canvas.DrawImage(charTexture, (float)player.posXGet(),(float)player.posYGet());
         }
 
+        private void DrawsStreets(List<Street> streets)
+        {
+            foreach(Street street in streets)
+            {
+                foreach(Car car in street.streetCarsGet())
+                {
+                    canvas.DrawImage(carTextureBlue, (float)car.posXGet(), (float)car.posYGet());
+                }
+            }
+        }
+
         public Bitmap RefreshFrame(GameState gameState)
         {
             FillsBackground();
             DrawsChar(gameState.mainChar);
+            DrawsStreets(gameState.streets);
             return frame;
         }
     }

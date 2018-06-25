@@ -19,16 +19,37 @@ namespace FroggerMLP
             this.maxNumOfCars = maxNumOfCars;
             this.streetCars = new List<Car>();
             this.yPos = yPos;
+            InitializeStreet();
+        }
+
+        private void InitializeStreet()
+        {
+            int spaceBetweenCars = Game.CANVAS_WIDTH / maxNumOfCars;
+            for(int i = 0; i < maxNumOfCars; i++)
+            {
+                streetCars.Add(new Car(TypeOfEntity.Car, spaceBetweenCars * i, yPos));
+            }
         }
 
         public void StreetRefresh()
         {
-            foreach(Car car in this.streetCars)
+            for(int i = 0; i < streetCars.Count(); i++)
             {
-                car.MoveHorizontal(carSpeed);
+                streetCars[i].MoveHorizontal(carSpeed);
+                if(streetCars[i].GotOutOfScene())
+                {
+                    streetCars.RemoveAt(i);
+                }
+            }
+            if (this.streetCars.Count() < maxNumOfCars)
+            {
+                this.streetCars.Add(new Car(TypeOfEntity.Car, Car.HITBOX_X_CAR, yPos));
             }
         }
 
-
+        public List<Car> streetCarsGet()
+        {
+            return streetCars;
+        }
     }
 }

@@ -30,7 +30,9 @@ namespace FroggerMLP
             gameEngine.StopRender();
         }
 
-        //Method to call when clock ticks
+
+
+        //Passing methods to GameEngine
         public void ClockTick()
         {
             gameEngine.ClockTick();

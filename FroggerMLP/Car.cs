@@ -25,5 +25,10 @@ namespace FroggerMLP
         {
             throw new NotImplementedException();
         }
+
+        public bool GotOutOfScene()
+        {
+            return (posX >= Game.CANVAS_WIDTH);
+        }
     }
 }
