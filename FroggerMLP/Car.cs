@@ -23,7 +23,7 @@ namespace FroggerMLP
 
         public override void MoveVertical(int valueToMove)
         {
-            throw new NotImplementedException();
+            this.posY += valueToMove;
         }
 
         public bool GotOutOfScene()

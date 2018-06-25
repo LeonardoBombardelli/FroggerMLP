@@ -100,5 +100,20 @@
   <ItemGroup>
     <None Include="Resources\street.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\safeStreet.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\duckyFront.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\duckyLeft.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\duckyRight.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\duckyBack.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

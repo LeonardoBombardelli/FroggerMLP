@@ -8,7 +8,7 @@ namespace FroggerMLP
 {
     class Street
     {
-        private const int SIZE_Y_STREET = 64;
+        public const int SIZE_Y_STREET = 64;
         private const int SIZE_X_STREET = Game.CANVAS_WIDTH;
 
         private List<Car> streetCars;
@@ -16,6 +16,7 @@ namespace FroggerMLP
         private int carSpeed;
         public int yPos { get; set; }
         private int yPositionCars;
+        private bool hasCars;
 
         public Street(int maxNumOfCars, int carSpeed, int yPos)
         {
@@ -25,6 +26,16 @@ namespace FroggerMLP
             this.yPos = yPos;
             this.yPositionCars = yPos + ((SIZE_Y_STREET - Car.HITBOX_Y_CAR) / 2);
             InitializeStreet();
+            hasCars = true;
+        }
+        public Street(int yPos)
+        {
+            this.carSpeed = 0;
+            this.maxNumOfCars = 0;
+            this.streetCars = new List<Car>();
+            this.yPos = yPos;
+            this.yPositionCars = yPos + ((SIZE_Y_STREET - Car.HITBOX_Y_CAR) / 2);
+            hasCars = false;
         }
 
         private void InitializeStreet()
@@ -55,6 +66,21 @@ namespace FroggerMLP
         public List<Car> streetCarsGet()
         {
             return streetCars;
+        }
+
+        public bool IsSafe()
+        {
+            return !hasCars;
+        }
+
+        public void ScrollDown()
+        {
+            yPos += MainChar.SPEED_DOWN;
+            yPositionCars += MainChar.SPEED_DOWN;
+            foreach (Car car in streetCars)
+            {
+                car.MoveVertical(MainChar.SPEED_DOWN);
+            }
         }
     }
 }

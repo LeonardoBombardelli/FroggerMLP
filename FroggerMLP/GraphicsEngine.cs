@@ -15,10 +15,16 @@ namespace FroggerMLP
         private Graphics canvas;
         private Bitmap frame;
 
+        private Directions lastPlayerDirection = Directions.Up;
+
         //Textures to render
-        private Bitmap charTexture;
+        private Bitmap charTextureFront;
+        private Bitmap charTextureBack;
+        private Bitmap charTextureLeft;
+        private Bitmap charTextureRight;
         private Bitmap carTextureBlue;
         private Bitmap streetSprite;
+        private Bitmap safeStreetSprite;
 
         /* Methods */
         //Constructor
@@ -32,9 +38,13 @@ namespace FroggerMLP
         
         private void LoadAssets()
         {
-            charTexture = FroggerMLP.Properties.Resources.charSprite;
+            charTextureFront = FroggerMLP.Properties.Resources.duckyFront;
+            charTextureBack = FroggerMLP.Properties.Resources.duckyBack;
+            charTextureLeft = FroggerMLP.Properties.Resources.duckyLeft;
+            charTextureRight = FroggerMLP.Properties.Resources.duckyRight;
             carTextureBlue = FroggerMLP.Properties.Resources.SimpleBlueCarTopView;
             streetSprite = FroggerMLP.Properties.Resources.Street;
+            safeStreetSprite = FroggerMLP.Properties.Resources.safeStreet;
         }
 
         private void FillsBackground()
@@ -42,9 +52,31 @@ namespace FroggerMLP
             canvas.FillRectangle(new SolidBrush(Color.Beige), 0, 0, Game.CANVAS_WIDTH, Game.CANVAS_HEIGHT);
         }
 
-        private void DrawsChar(MainChar player)
+        private void DrawsChar(Directions dir, MainChar player)
         {
-            canvas.DrawImage(charTexture, (float)player.posXGet(),(float)player.posYGet());
+            if (dir == Directions.None)
+                dir = lastPlayerDirection;
+            if(dir == Directions.Left)
+            {
+                canvas.DrawImage(charTextureLeft, (float)player.posXGet(), (float)player.posYGet());
+                lastPlayerDirection = Directions.Left;
+            }
+            else if (dir == Directions.Right)
+            {
+                canvas.DrawImage(charTextureRight, (float)player.posXGet(), (float)player.posYGet());
+                lastPlayerDirection = Directions.Right;
+            }
+            else if (dir == Directions.Up)
+            {
+                canvas.DrawImage(charTextureBack, (float)player.posXGet(), (float)player.posYGet());
+                lastPlayerDirection = Directions.Up;
+            }
+            else if (dir == Directions.Down)
+            {
+                canvas.DrawImage(charTextureFront, (float)player.posXGet(), (float)player.posYGet());
+                lastPlayerDirection = Directions.Down;
+            }
+
         }
 
         private void DrawsStreets(List<Street> streets)
@@ -53,7 +85,10 @@ namespace FroggerMLP
             {
                 try
                 {
-                    canvas.DrawImage(streetSprite, INITIAL_STREET_X, (float)street.yPos);
+                    if(street.IsSafe())
+                        canvas.DrawImage(safeStreetSprite, INITIAL_STREET_X, (float)street.yPos);
+                    else
+                        canvas.DrawImage(streetSprite, INITIAL_STREET_X, (float)street.yPos);
 
                     foreach (Car car in street.streetCarsGet())
                     {
@@ -71,7 +106,7 @@ namespace FroggerMLP
         {
             FillsBackground();
             DrawsStreets(gameState.streets);
-            DrawsChar(gameState.mainChar);
+            DrawsChar(gameState.ReturnPlayerDirection(), gameState.mainChar);
             return frame;
         }
     }

@@ -40,8 +40,8 @@ namespace FroggerMLP
         public override void MoveVertical(int valueToMove)
         {
             this.posY += valueToMove;
-            if (this.posY < 0)
-                this.posY = 0;
+            if (this.posY < GameState.MAX_Y_PLAYER_CAN_GO)
+                this.posY = GameState.MAX_Y_PLAYER_CAN_GO;
             if (this.posY > Game.CANVAS_HEIGHT - SIZE_PLAYER_VERTICAL)
                 this.posY = Game.CANVAS_HEIGHT - SIZE_PLAYER_VERTICAL;
         }
