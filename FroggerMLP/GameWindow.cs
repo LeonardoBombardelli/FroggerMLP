@@ -11,6 +11,14 @@ using System.Runtime.InteropServices;
 
 namespace FroggerMLP
 {
+    enum KeyboardKeys
+    {
+        KeyW,
+        KeyS,
+        KeyA,
+        KeyD
+    }
+
     public partial class GameWindow : Form
     {
         //Members
@@ -55,25 +63,25 @@ namespace FroggerMLP
         private void GameWindow_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.S)
-                game.PressS();
+                game.PressKey(KeyboardKeys.KeyS);
             if (e.KeyCode == Keys.W)
-                game.PressW();
+                game.PressKey(KeyboardKeys.KeyW);
             if (e.KeyCode == Keys.A)
-                game.PressA();
+                game.PressKey(KeyboardKeys.KeyA);
             if (e.KeyCode == Keys.D)
-                game.PressD();
+                game.PressKey(KeyboardKeys.KeyD);
         }
 
         private void GameWindow_KeyUp(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.S)
-                game.ReleaseS();
+                game.ReleaseKey(KeyboardKeys.KeyS);
             if (e.KeyCode == Keys.W)
-                game.ReleaseW();
+                game.ReleaseKey(KeyboardKeys.KeyW);
             if (e.KeyCode == Keys.A)
-                game.ReleaseA();
+                game.ReleaseKey(KeyboardKeys.KeyA);
             if (e.KeyCode == Keys.D)
-                game.ReleaseD();
+                game.ReleaseKey(KeyboardKeys.KeyD);
         }
     }
 }

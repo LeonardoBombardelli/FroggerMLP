@@ -9,6 +9,8 @@ namespace FroggerMLP
 {
     class GraphicsEngine
     {
+        private const float INITIAL_STREET_X = 0;
+
         /* Members */
         private Graphics canvas;
         private Bitmap frame;
@@ -16,7 +18,7 @@ namespace FroggerMLP
         //Textures to render
         private Bitmap charTexture;
         private Bitmap carTextureBlue;
-
+        private Bitmap streetSprite;
 
         /* Methods */
         //Constructor
@@ -32,6 +34,7 @@ namespace FroggerMLP
         {
             charTexture = FroggerMLP.Properties.Resources.charSprite;
             carTextureBlue = FroggerMLP.Properties.Resources.SimpleBlueCarTopView;
+            streetSprite = FroggerMLP.Properties.Resources.Street;
         }
 
         private void FillsBackground()
@@ -48,9 +51,18 @@ namespace FroggerMLP
         {
             foreach(Street street in streets)
             {
-                foreach(Car car in street.streetCarsGet())
+                try
                 {
-                    canvas.DrawImage(carTextureBlue, (float)car.posXGet(), (float)car.posYGet());
+                    canvas.DrawImage(streetSprite, INITIAL_STREET_X, (float)street.yPos);
+
+                    foreach (Car car in street.streetCarsGet())
+                    {
+                        canvas.DrawImage(carTextureBlue, (float)car.posXGet(), (float)car.posYGet());
+                    }
+                }
+                catch (InvalidOperationException e) //TODO: Try to make a mutex kind of solution to this problem.
+                {
+                    Console.WriteLine("Exception Handled!");
                 }
             }
         }
@@ -58,8 +70,8 @@ namespace FroggerMLP
         public Bitmap RefreshFrame(GameState gameState)
         {
             FillsBackground();
-            DrawsChar(gameState.mainChar);
             DrawsStreets(gameState.streets);
+            DrawsChar(gameState.mainChar);
             return frame;
         }
     }

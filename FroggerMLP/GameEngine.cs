@@ -74,44 +74,30 @@ namespace FroggerMLP
             gameState.ClockTick();
         }
 
-        public void PressS()
+        public void PressKey(KeyboardKeys key)
         {
-            gameState.GoDown();
+            if (key == KeyboardKeys.KeyS)
+                gameState.GoDown();
+            else if (key == KeyboardKeys.KeyW)
+                gameState.GoUp();
+            else if (key == KeyboardKeys.KeyA)
+                gameState.GoLeft();
+            else if (key == KeyboardKeys.KeyD)
+                gameState.GoRight();
         }
 
-        public void PressW()
+        public void ReleaseKey(KeyboardKeys key)
         {
-            gameState.GoUp();
+            if (key == KeyboardKeys.KeyS)
+                gameState.StopGoDown();
+            else if (key == KeyboardKeys.KeyA)
+                gameState.StopGoLeft();
+            else if (key == KeyboardKeys.KeyD)
+                gameState.StopGoRight();
+            else if (key == KeyboardKeys.KeyW)
+                gameState.StopGoUp();
         }
 
-        public void PressA()
-        {
-            gameState.GoLeft();
-        }
 
-        public void PressD()
-        {
-            gameState.GoRight();
-        }
-
-        public void ReleaseS()
-        {
-            gameState.StopGoDown();
-        }
-
-        public void ReleaseW()
-        {
-            gameState.StopGoUp();
-        }
-
-        public void ReleaseA()
-        {
-            gameState.StopGoLeft();
-        }
-
-        public void ReleaseD()
-        {
-            gameState.StopGoRight();
-        }
     }
 }

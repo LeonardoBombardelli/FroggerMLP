@@ -30,22 +30,22 @@ namespace FroggerMLP
             this.posY = posY;
         }
 
-        public void posXSet(int value)
+        public virtual void posXSet(int value)
         {
             this.posX = value;
         }
 
-        public void posYSet(int value)
+        public virtual void posYSet(int value)
         {
             this.posY = value;
         }
 
-        public int posYGet()
+        public virtual int posYGet()
         {
             return this.posY;
         }
 
-        public int posXGet()
+        public virtual int posXGet()
         {
             return this.posX;
         }

@@ -9,7 +9,7 @@ namespace FroggerMLP
     class Car : MovingEntity
     {
         public const int HITBOX_X_CAR = 96;
-        public const int HITBOX_Y_CAR = 47;
+        public const int HITBOX_Y_CAR = 48;
 
         public Car(TypeOfEntity typeOfEntity, int posX, int posY) : base(typeOfEntity, posX, posY)
         {

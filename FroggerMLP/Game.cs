@@ -38,44 +38,14 @@ namespace FroggerMLP
             gameEngine.ClockTick();
         }
 
-        public void PressS()
+        public void PressKey(KeyboardKeys key)
         {
-            gameEngine.PressS();
+            gameEngine.PressKey(key);
         }
 
-        public void PressW()
+        public void ReleaseKey(KeyboardKeys key)
         {
-            gameEngine.PressW();
-        }
-
-        public void PressA()
-        {
-            gameEngine.PressA();
-        }
-
-        public void PressD()
-        {
-            gameEngine.PressD();
-        }
-
-        public void ReleaseS()
-        {
-            gameEngine.ReleaseS();
-        }
-
-        public void ReleaseW()
-        {
-            gameEngine.ReleaseW();
-        }
-
-        public void ReleaseA()
-        {
-            gameEngine.ReleaseA();
-        }
-
-        public void ReleaseD()
-        {
-            gameEngine.ReleaseD();
+            gameEngine.ReleaseKey(key);
         }
     }
 }
