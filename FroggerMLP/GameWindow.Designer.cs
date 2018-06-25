@@ -28,7 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.gameCanvas = new System.Windows.Forms.Panel();
+            this.clockRefreshFrame = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // gameCanvas
@@ -39,6 +41,12 @@
             this.gameCanvas.Size = new System.Drawing.Size(1200, 700);
             this.gameCanvas.TabIndex = 0;
             this.gameCanvas.Paint += new System.Windows.Forms.PaintEventHandler(this.GameCanvas_Paint);
+            // 
+            // clockRefreshFrame
+            // 
+            this.clockRefreshFrame.Enabled = true;
+            this.clockRefreshFrame.Interval = 10;
+            this.clockRefreshFrame.Tick += new System.EventHandler(this.clockRefreshFrame_Tick);
             // 
             // GameWindow
             // 
@@ -53,6 +61,7 @@
             this.Text = "The Ultimatum Insane Frogger Game - You Shall (Not) Survive Edition";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.GameWindow_FormClosing);
             this.Load += new System.EventHandler(this.GameWindow_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.GameWindow_KeyDown);
             this.ResumeLayout(false);
 
         }
@@ -60,6 +69,7 @@
         #endregion
 
         private System.Windows.Forms.Panel gameCanvas;
+        private System.Windows.Forms.Timer clockRefreshFrame;
     }
 }
 

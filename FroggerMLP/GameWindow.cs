@@ -46,5 +46,22 @@ namespace FroggerMLP
         [DllImport("kernel32.dll", SetLastError = true)]
         [return: MarshalAsAttribute(UnmanagedType.Bool)]
         static extern bool AllocConsole();
+
+        private void clockRefreshFrame_Tick(object sender, EventArgs e)
+        {
+            game.ClockTick();
+        }
+
+        private void GameWindow_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.S)
+                game.PressS();
+            if (e.KeyCode == Keys.W)
+                game.PressW();
+            if (e.KeyCode == Keys.A)
+                game.PressA();
+            if (e.KeyCode == Keys.D)
+                game.PressD();
+        }
     }
 }

@@ -67,5 +67,31 @@ namespace FroggerMLP
                 }
             }
         }
+
+        //Method to call when clock thicks
+        public void ClockTick()
+        {
+            gameState.ClockTick();
+        }
+
+        public void PressS()
+        {
+            gameState.GoDown();
+        }
+
+        public void PressW()
+        {
+            gameState.GoUp();
+        }
+
+        public void PressA()
+        {
+            gameState.GoLeft();
+        }
+
+        public void PressD()
+        {
+            gameState.GoRight();
+        }
     }
 }

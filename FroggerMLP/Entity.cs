@@ -18,8 +18,8 @@ namespace FroggerMLP
     {
         /* Members */
         public TypeOfEntity typeOfEntity;
-        public int posX;
-        public int posY;
+        protected int posX;
+        protected int posY;
 
         /* Methods */
         //Constructor
@@ -28,6 +28,26 @@ namespace FroggerMLP
             this.typeOfEntity = typeOfEntity;
             this.posX = posX;
             this.posY = posY;
+        }
+
+        public void posXSet(int value)
+        {
+            this.posX = value;
+        }
+
+        public void posYSet(int value)
+        {
+            this.posY = value;
+        }
+
+        public int posYGet()
+        {
+            return this.posY;
+        }
+
+        public int posXGet()
+        {
+            return this.posX;
         }
     }
 }

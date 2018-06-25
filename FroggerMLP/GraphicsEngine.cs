@@ -39,7 +39,7 @@ namespace FroggerMLP
 
         private void DrawsChar(MainChar player)
         {
-            canvas.DrawImage(charTexture, (float)player.posX,(float)player.posY);
+            canvas.DrawImage(charTexture, (float)player.posXGet(),(float)player.posYGet());
         }
 
         public Bitmap RefreshFrame(GameState gameState)

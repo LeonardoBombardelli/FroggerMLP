@@ -12,5 +12,15 @@ namespace FroggerMLP
         {
             this.typeOfEntity = TypeOfEntity.MainChar;
         }
+
+        public override void MoveHorizontal(int valueToMove)
+        {
+            this.posX += valueToMove;
+        }
+
+        public override void MoveVertical(int valueToMove)
+        {
+            this.posY += valueToMove;
+        }
     }
 }
