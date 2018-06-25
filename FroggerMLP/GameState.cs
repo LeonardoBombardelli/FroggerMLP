@@ -8,18 +8,6 @@ namespace FroggerMLP
 {
     class GameState
     {
-        /* Constants */
-        private const int INITIAL_POS_X = 100;
-        private const int INITIAL_POS_Y = 100;
-
-        private const int SPEED_PLAYER_HORIZONTAL = 6;
-        private const int SPEED_PLAYER_VERTICAL = 5;
-        private const int SPEED_LEFT = SPEED_PLAYER_HORIZONTAL * -1;
-        private const int SPEED_RIGHT = SPEED_PLAYER_HORIZONTAL;
-        private const int SPEED_UP = SPEED_PLAYER_VERTICAL * -1;
-        private const int SPEED_DOWN = SPEED_PLAYER_VERTICAL;
-
-
 
         /* Members */
         public MainChar mainChar { get; set; }
@@ -31,33 +19,29 @@ namespace FroggerMLP
 
         public GameState()
         {
-            this.mainChar = new MainChar(TypeOfEntity.MainChar, INITIAL_POS_X, INITIAL_POS_Y);
+            this.mainChar = new MainChar(TypeOfEntity.MainChar, MainChar.INITIAL_POS_X, MainChar.INITIAL_POS_Y);
         }
         
         public void ClockTick()
         {
             if (goingDown)
             {
-                mainChar.MoveVertical(SPEED_DOWN);
-                goingDown = false;
+                mainChar.MoveVertical(MainChar.SPEED_DOWN);
             }
 
             if (goingUp)
             {
-                mainChar.MoveVertical(SPEED_UP);
-                goingUp = false;
+                mainChar.MoveVertical(MainChar.SPEED_UP);
             }
 
             if (goingLeft)
             {
-                mainChar.MoveHorizontal(SPEED_LEFT);
-                goingLeft = false;
+                mainChar.MoveHorizontal(MainChar.SPEED_LEFT);
             }
 
             if (goingRight)
             {
-                mainChar.MoveHorizontal(SPEED_RIGHT);
-                goingRight = false;
+                mainChar.MoveHorizontal(MainChar.SPEED_RIGHT);
             }
         }
 
@@ -79,6 +63,26 @@ namespace FroggerMLP
         public void GoRight()
         {
             goingRight = true;
+        }
+
+        public void StopGoDown()
+        {
+            goingDown = false;
+        }
+
+        public void StopGoUp()
+        {
+            goingUp = false;
+        }
+
+        public void StopGoLeft()
+        {
+            goingLeft = false;
+        }
+
+        public void StopGoRight()
+        {
+            goingRight = false;
         }
     }
 }

@@ -15,6 +15,7 @@ namespace FroggerMLP
 
         //Textures to render
         private Bitmap charTexture;
+        private Bitmap carTextureBlue;
 
 
         /* Methods */
@@ -30,6 +31,7 @@ namespace FroggerMLP
         private void LoadAssets()
         {
             charTexture = FroggerMLP.Properties.Resources.charSprite;
+            carTextureBlue = FroggerMLP.Properties.Resources.SimpleBlueCarTopView;
         }
 
         private void FillsBackground()

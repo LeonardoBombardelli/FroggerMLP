@@ -69,5 +69,15 @@ namespace FroggerMLP.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SimpleBlueCarTopView {
+            get {
+                object obj = ResourceManager.GetObject("SimpleBlueCarTopView", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }

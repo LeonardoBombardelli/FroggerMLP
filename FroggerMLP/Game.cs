@@ -55,5 +55,25 @@ namespace FroggerMLP
         {
             gameEngine.PressD();
         }
+
+        public void ReleaseS()
+        {
+            gameEngine.ReleaseS();
+        }
+
+        public void ReleaseW()
+        {
+            gameEngine.ReleaseW();
+        }
+
+        public void ReleaseA()
+        {
+            gameEngine.ReleaseA();
+        }
+
+        public void ReleaseD()
+        {
+            gameEngine.ReleaseD();
+        }
     }
 }

@@ -63,5 +63,17 @@ namespace FroggerMLP
             if (e.KeyCode == Keys.D)
                 game.PressD();
         }
+
+        private void GameWindow_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.S)
+                game.ReleaseS();
+            if (e.KeyCode == Keys.W)
+                game.ReleaseW();
+            if (e.KeyCode == Keys.A)
+                game.ReleaseA();
+            if (e.KeyCode == Keys.D)
+                game.ReleaseD();
+        }
     }
 }

@@ -45,7 +45,7 @@
             // clockRefreshFrame
             // 
             this.clockRefreshFrame.Enabled = true;
-            this.clockRefreshFrame.Interval = 10;
+            this.clockRefreshFrame.Interval = 20;
             this.clockRefreshFrame.Tick += new System.EventHandler(this.clockRefreshFrame_Tick);
             // 
             // GameWindow
@@ -62,6 +62,7 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.GameWindow_FormClosing);
             this.Load += new System.EventHandler(this.GameWindow_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.GameWindow_KeyDown);
+            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.GameWindow_KeyUp);
             this.ResumeLayout(false);
 
         }

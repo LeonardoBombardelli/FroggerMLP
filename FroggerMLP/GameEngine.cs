@@ -93,5 +93,25 @@ namespace FroggerMLP
         {
             gameState.GoRight();
         }
+
+        public void ReleaseS()
+        {
+            gameState.StopGoDown();
+        }
+
+        public void ReleaseW()
+        {
+            gameState.StopGoUp();
+        }
+
+        public void ReleaseA()
+        {
+            gameState.StopGoLeft();
+        }
+
+        public void ReleaseD()
+        {
+            gameState.StopGoRight();
+        }
     }
 }

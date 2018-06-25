@@ -48,6 +48,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Car.cs" />
+    <Compile Include="Street.cs" />
     <Compile Include="GameState.cs" />
     <Compile Include="Entity.cs" />
     <Compile Include="GraphicsEngine.cs" />
@@ -91,6 +93,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\whatever.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SimpleBlueCarTopView.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
