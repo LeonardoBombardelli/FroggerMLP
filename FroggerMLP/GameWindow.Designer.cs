@@ -45,7 +45,7 @@
             // clockRefreshFrame
             // 
             this.clockRefreshFrame.Enabled = true;
-            this.clockRefreshFrame.Interval = 20;
+            this.clockRefreshFrame.Interval = 50;
             this.clockRefreshFrame.Tick += new System.EventHandler(this.clockRefreshFrame_Tick);
             // 
             // GameWindow

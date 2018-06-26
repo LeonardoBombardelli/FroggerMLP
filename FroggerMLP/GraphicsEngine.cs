@@ -81,32 +81,33 @@ namespace FroggerMLP
 
         private void DrawsStreets(List<Street> streets)
         {
-            foreach(Street street in streets)
+            for(int i = 0; i < streets.Count(); i++)
             {
-                try
+                if (!streets[i].IsSafe())
                 {
-                    if(street.IsSafe())
-                        canvas.DrawImage(safeStreetSprite, INITIAL_STREET_X, (float)street.yPos);
-                    else
-                        canvas.DrawImage(streetSprite, INITIAL_STREET_X, (float)street.yPos);
-
-                    foreach (Car car in street.streetCarsGet())
+                    canvas.DrawImage(streetSprite, INITIAL_STREET_X, (float)streets[i].yPos);
+                    for (int j = 0; j < streets[i].streetCarsGet().Count(); j++)
                     {
+                        Car car = streets[i].streetCarsGet()[j];    //TODO: FIX IT!!!
                         canvas.DrawImage(carTextureBlue, (float)car.posXGet(), (float)car.posYGet());
                     }
                 }
-                catch (InvalidOperationException e) //TODO: Try to make a mutex kind of solution to this problem.
-                {
-                    Console.WriteLine("Exception Handled!");
-                }
+                //else
+                    //canvas.DrawImage(safeStreetSprite, INITIAL_STREET_X, (float)streets[i].yPos);
             }
         }
 
         public Bitmap RefreshFrame(GameState gameState)
         {
-            FillsBackground();
-            DrawsStreets(gameState.streets);
-            DrawsChar(gameState.ReturnPlayerDirection(), gameState.mainChar);
+            if (gameState.CanLoadFrames())
+            {
+                FillsBackground();
+                DrawsStreets(gameState.streets);
+                DrawsChar(gameState.ReturnPlayerDirection(), gameState.mainChar);
+
+            }
+            else
+                Console.WriteLine("Couldn't refresh frame");
             return frame;
         }
     }
